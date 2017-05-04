@@ -13,13 +13,11 @@
 ActiveRecord::Schema.define(version: 20170504092227) do
 
   create_table "orders", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.decimal  "Price",          precision: 10
-    t.datetime "Delivery_Date"
-    t.string   "Obs"
-    t.integer  "Order_State_ID"
-    t.integer  "User_Id"
-    t.datetime "created_at",                    null: false
-    t.datetime "updated_at",                    null: false
+    t.decimal  "price",         precision: 10
+    t.datetime "delivery_date"
+    t.string   "obs"
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
   end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
