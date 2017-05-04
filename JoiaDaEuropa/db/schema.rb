@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170504105519) do
+ActiveRecord::Schema.define(version: 20170504110038) do
 
   create_table "order_files", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
@@ -18,6 +18,8 @@ ActiveRecord::Schema.define(version: 20170504105519) do
     t.string   "path"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "order_id"
+    t.index ["order_id"], name: "index_order_files_on_order_id", using: :btree
   end
 
   create_table "order_states", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -28,17 +30,23 @@ ActiveRecord::Schema.define(version: 20170504105519) do
 
   create_table "orders", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.datetime "delivery_date"
-    t.decimal  "price",         precision: 2
+    t.decimal  "price",          precision: 2
     t.string   "obs"
-    t.datetime "created_at",                  null: false
-    t.datetime "updated_at",                  null: false
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
+    t.integer  "order_state_id"
+    t.index ["order_state_id"], name: "index_orders_on_order_state_id", using: :btree
   end
 
   create_table "orders_actions", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.datetime "date"
     t.string   "obs"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.integer  "reports_type_id"
+    t.integer  "order_id"
+    t.index ["order_id"], name: "index_orders_actions_on_order_id", using: :btree
+    t.index ["reports_type_id"], name: "index_orders_actions_on_reports_type_id", using: :btree
   end
 
   create_table "reports_types", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
