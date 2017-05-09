@@ -5,7 +5,8 @@ Rails.application.routes.draw do
 
   get '/profile/index'
   get '/home/index'
-  get 'home/client_area'
+  get '/client_area/index'
+  post '/client_area/index'
   get 'home/NewOrder'
 
   root to: 'home#index'
