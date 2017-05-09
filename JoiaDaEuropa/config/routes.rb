@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   get '/home/index'
   get '/client_area/index'
   post '/client_area/index'
+
   get 'home/NewOrder'
 
   root to: 'home#index'
