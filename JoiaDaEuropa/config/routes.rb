@@ -8,8 +8,9 @@ Rails.application.routes.draw do
   get '/client_area/index'
   post '/client_area/index'
   get '/client_area/new_order'
+  get '/client_area/save_order'
 
-  get 'home/NewOrder'
+
 
   root to: 'home#index'
 
