@@ -1,0 +1,37 @@
+
+
+<div class="container-fluid">
+  <div class="row content">
+    <div class="col-sm-3 sidenav hidden-xs">
+      <ul class="nav nav-pills nav-stacked">
+        <li class="active">Menu</li>
+        <li><a href="#">Perfil</a></li>
+        <li><a href="#">Nova Encomenda</a></li>
+        <li><a href="#">Encomendas</a></li>
+        <li><a href="#">Contacte-nos</a></li>
+      </ul>
+    </div>
+    <br>
+    <%= form_for @order, :url => url_for(:controller => 'client_area', :action => 'save_order'), html: {class: 'container'} do |f| %>
+    <div class="col-sm-13">
+      <li>Preço:</li>
+      <label for="preco"><%= t('preco') %></label>
+    </div>
+    <div class="fileinputs">
+      <li>Escolher ficheiro:</li>
+      <input type="file" class="file">
+    </div>
+    <div>
+      <li>Data de Entrega:</li>
+      <li><input type="datetime">dd/mm/aaaa</li>
+    </div>
+    <div>
+      <li>OBS:</li>
+      <textarea name="obs" cols=50 rows=10>isto é uma area de texto</textarea>
+    </div>
+    <div>
+      <input type="button" name="criarencomenda" value="Criar Encomenda">
+    </div>
+  </div>
+    end
+
