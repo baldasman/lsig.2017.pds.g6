@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   get '/client_area/save_order'
   get '/home/QuemSomos'
   get '/home/Missao'
+  get '/client_area/all_orders'
 
   root to: 'home#index'
 
