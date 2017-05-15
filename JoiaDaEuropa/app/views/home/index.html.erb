@@ -7,6 +7,6 @@
   <h2><font size="3">A Joia da Europa é uma empresa que se dedica inteiramente à fabricação de calçado de qualilidade e conforto. Se procura qualidade, inovação, transformação, diferenciação de produtos, venha conhecer a nossa empresa, porque aqui encontra tudo o que precisa.</font></h2>
   </body>
 
-  <%= link_to t('My account'), client_area_index_path %>
+  <%= link_to t('My account'), client_area_index_path if User.find_by_is_client(1) %>
 
 </div>
