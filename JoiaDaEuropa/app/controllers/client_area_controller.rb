@@ -5,24 +5,29 @@ class ClientAreaController < ApplicationController
   end
 
   def new_order
-    @orders = Order.new
+    @order = Order.new
 
     respond_to do |f|
       f.html
-      f.xml
+
     end
 
   end
   def save_order
-    @orders = Order.new(params[:price][:obs])
+    @order = Order.new
 
-    respond_to do |f|
-      if @orders.save
-        f.html { redirect_to(@orders, :notice => 'Order was successfully created') }
+    _order = params[:order]
+    @order.order_state_id = 1
+    @order.obs = _order[:obs]
+    @order.price = _order[:price]
+    @order.delivery_date = _order[:delivery_date]
+
+    if @order.save
+        redirect_to(@orders, :notice => 'Order was successfully created')
       else
-        f.html { render :action => "new" }
-      end
-  end
+
+      render :action => "new_order"
+    end
   end
   def all_orders
 
@@ -34,11 +39,9 @@ class ClientAreaController < ApplicationController
     format.xml
   end
   end
-end
 
-
-
-
-
-
+  def order_params
+    params
+  end
+  end
 

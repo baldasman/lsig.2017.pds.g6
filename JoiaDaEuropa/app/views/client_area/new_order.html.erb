@@ -37,21 +37,26 @@
       </ul>
     </div>
     <br>
-    <%= form_for @orders, :url => url_for(:controller => 'client_area', :action => 'save_order') do |f| %>
+    <%= form_for @order, url: {action: "save_order"} do |f| %>
 
-
-          <label for="price"><%= t('price') %></label>
+        <p>
+        <%= f.label :price %>
           <%= f.text_field :price %>
+        </p>
 
 
-          <textarea for="Observations"><%= t('obs') %></textarea>
+        <p>
+          <%= f.label :obs %>
           <%= f.text_field :obs %>
+        </p>
 
 
+        <p>
+          <%= f.label :delivery_date %>
+          <%= f.text_field :delivery_date %>
+        </p>
 
-
-
-        <%= f.submit t('save_order') %>
+        <%= f.submit 'save_order' %>
     <% end %>
 
 </body>
