@@ -31,7 +31,7 @@ class ClientAreaController < ApplicationController
         if @order.save
             redirect_to(client_area_all_orders_path, :notice => 'Order was successfully created')
         else
-            render :action => "new_order"
+            redirect_to client_area_new_order_path
         end
 
     end
