@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170516122844) do
+ActiveRecord::Schema.define(version: 20170516130400) do
 
   create_table "order_files", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
@@ -23,17 +23,17 @@ ActiveRecord::Schema.define(version: 20170516122844) do
   end
 
   create_table "order_states", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "description"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.string   "internal_description"
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
   end
 
   create_table "orders", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.datetime "delivery_date"
-    t.decimal  "price",          precision: 2
+    t.decimal  "price",          precision: 15, scale: 2
     t.string   "obs"
-    t.datetime "created_at",                   null: false
-    t.datetime "updated_at",                   null: false
+    t.datetime "created_at",                              null: false
+    t.datetime "updated_at",                              null: false
     t.integer  "order_state_id"
     t.integer  "user_id"
     t.index ["order_state_id"], name: "index_orders_on_order_state_id", using: :btree
