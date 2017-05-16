@@ -1,47 +1,39 @@
 class ClientAreaController < ApplicationController
-  before_action if User.find_by_is_client(1)
-  def index
-    @account = current_user
-  end
 
-  def new_order
-    @order = Order.new
+    def index
 
-    respond_to do |f|
-      f.html
+        @account = current_user
 
     end
 
-  end
-  def save_order
-    @order = Order.new
+    def new_order
 
-    _order = params[:order]
-    @order.order_state_id = 1
-    @order.obs = _order[:obs]
-    @order.price = _order[:price]
-    @order.delivery_date = _order[:delivery_date]
+        @order = Order.new
 
-    if @order.save
-        redirect_to(@orders, :notice => 'Order was successfully created')
-      else
-
-      render :action => "new_order"
     end
-  end
-  def all_orders
 
-  @orders = Order.all
+    def save_order
 
+        _order = params[:order]
 
-  respond_to do |format|
-    format.html
-    format.xml
-  end
-  end
+        @order = Order.new user_id: current_user.id, order_state_id: 1
+        @order.obs = _order[:obs]
+        @order.price = _order[:price]
+        @order.delivery_date = _order[:delivery_date]
 
-  def order_params
-    params
-  end
-  end
+        if @order.save
+            redirect_to(client_area_all_orders_path, :notice => 'Order was successfully created')
+        else
+            render :action => "new_order"
+        end
+
+    end
+
+    def all_orders
+
+        @orders = Order.all
+
+    end
+
+end
 
