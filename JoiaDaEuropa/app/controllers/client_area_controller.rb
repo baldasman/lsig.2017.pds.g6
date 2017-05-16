@@ -12,6 +12,13 @@ class ClientAreaController < ApplicationController
 
     end
 
+    def view_order
+
+        @order = Order.find_by(id: params[:order_id])
+
+
+    end
+
     def save_order
 
         _order = params[:order]

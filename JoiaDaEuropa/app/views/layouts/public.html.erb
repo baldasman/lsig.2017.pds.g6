@@ -34,29 +34,7 @@
     </div>
 </div>
 
-
-<div class="container-fluid">
-    <div class="row content">
-        <% if current_user %>
-            <div class="col-sm-3 sidenav hidden-xs">
-                <h2>Logo</h2>
-                <ul class="nav nav-pills nav-stacked">
-                    <li class="active">Menu</li>
-                    <li><%= link_to t('Perfil'), profile_index_path %></li>
-                    <li><%= link_to t('Nova Encomenda'), client_area_new_order_path %></li>
-                    <li><%= link_to t('Encomendas'), client_area_all_orders_path %></li>
-                    <li><a href="#">Contacte-nos</a></li>
-                </ul>
-                <br>
-            </div>
-        <% end %>
-
-        <div class="col-sm-9">
-            <%= yield %>
-        </div>
-
-    </div>
-</div>
+<%= yield %>
 
 </body>
 </html>

@@ -15,6 +15,8 @@ Rails.application.routes.draw do
   post '/client_area/save_order'
   get '/agent_area/index'
 
+  get '/client_area/view_order/:order_id', to: 'client_area#view_order', as: 'client_area_view_order'
+
   root to: 'home#index'
 
 end
