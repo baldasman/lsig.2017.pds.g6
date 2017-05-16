@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   get '/client_area/all_orders'
   post '/client_area/save_order'
   get '/agent_area/index'
+
   root to: 'home#index'
 
 end

@@ -14,11 +14,11 @@ class ClientAreaController < ApplicationController
 
   end
   def save_order
-    @orders = Order.new(params[:price][:obs][:delivery_date])
+    @orders = Order.new(params[:price][:obs])
 
     respond_to do |f|
       if @orders.save
-        f.html { redirect_to(@orders, :notice => 'Student was successfully created') }
+        f.html { redirect_to(@orders, :notice => 'Order was successfully created') }
       else
         f.html { render :action => "new" }
       end
