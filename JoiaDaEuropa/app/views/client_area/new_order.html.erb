@@ -25,13 +25,13 @@
 
         <p>
           <%= f.label :obs %>
-          <%= f.text_field :obs %>
+          <%= f.text_area :obs %>
         </p>
 
 
         <p>
           <%= f.label :delivery_date %>
-          <%= f.text_field :delivery_date %>
+          <%= f.text_field :delivery_date, :id => 'datepicker', :value => Date.today, :class => 'input-group date' %>
         </p>
 
         <%= f.submit 'save_order' %>
