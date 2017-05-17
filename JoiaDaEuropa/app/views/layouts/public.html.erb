@@ -19,10 +19,10 @@
         <%= image_tag('logo.png', :alt => 'logo feed') %>
         <!-- Float links to the right. Hide them on small screens -->
         <div class="w3-right w3-hide-small">
-            <a href="#projects" class="w3-bar-item w3-button">Home</a>
-            <a href="#about" class="w3-bar-item w3-button">Quem Somos</a>
-            <a href="#contact" class="w3-bar-item w3-button">Missão</a>
-            <a href="#contact" class="w3-bar-item w3-button">Noticias</a>
+            <a href="<%= home_index_path %>#projects" class="w3-bar-item w3-button">Missão</a>
+            <a href="<%= home_index_path %>#about" class="w3-bar-item w3-button">Quem Somos</a>
+            <a href="<%= home_index_path %>#contact" class="w3-bar-item w3-button">Contatos</a>
+            <a href="<%= home_index_path %>#news" class="w3-bar-item w3-button">Noticias</a>
 
             <% if current_user %>
                 <%= link_to 'Área de Cliente', client_area_index_path, :class => 'w3-bar-item w3-button' %>

@@ -18,32 +18,39 @@ class ClientAreaController < ApplicationController
 
 
     end
+
     def destroy_order
 
         @order = Order.find_by(id: params[:order_id])
+        @order.destroy
+
+        redirect_to client_area_all_orders_path
 
 
     end
+
     def edit_order
 
         @order = Order.find_by(id: params[:order_id])
-        _order = params[:@order]
-        @order.obs = _order[:obs]
-        @order.price = _order[:price]
-        @order.delivery_date = _order[:delivery_date]
 
     end
+
     def save_order
 
         _order = params[:order]
 
-        @order = Order.new user_id: current_user.id, order_state_id: 1
+        if _order[:id].to_i > 0
+            @order = Order.find_by(id: _order[:id])
+        else
+            @order = Order.new user_id: current_user.id, order_state_id: 1
+        end
+
         @order.obs = _order[:obs]
         @order.price = _order[:price]
         @order.delivery_date = _order[:delivery_date]
 
         if @order.save
-            redirect_to(client_area_all_orders_path, :notice => 'Order was successfully created')
+            redirect_to(client_area_view_order_path(@order.id), :notice => 'Order was successfully created')
         else
             redirect_to client_area_new_order_path
         end
