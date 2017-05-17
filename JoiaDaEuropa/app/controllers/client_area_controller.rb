@@ -18,7 +18,21 @@ class ClientAreaController < ApplicationController
 
 
     end
+    def destroy_order
 
+        @order = Order.find_by(id: params[:order_id])
+
+
+    end
+    def edit_order
+
+        @order = Order.find_by(id: params[:order_id])
+        _order = params[:@order]
+        @order.obs = _order[:obs]
+        @order.price = _order[:price]
+        @order.delivery_date = _order[:delivery_date]
+
+    end
     def save_order
 
         _order = params[:order]
@@ -41,6 +55,7 @@ class ClientAreaController < ApplicationController
         @orders = Order.all
 
     end
+
 
 end
 

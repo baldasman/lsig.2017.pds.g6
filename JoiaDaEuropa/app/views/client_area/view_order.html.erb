@@ -1,19 +1,28 @@
 <h1>My order #<%= @order.id %> </h1>
 
 <div>
-    <div>
-        <span><%= t('price') %></span>
-    </div>
-    <div>
-        <span><%= @order.price %></span>
-    </div>
+  <div>
+    <span><%= t('price') %></span>
+  </div>
+  <div>
+    <span><%= @order.price %></span>
+  </div>
 </div>
 
 <div>
-    <div>
-        <span><%= t('delivery_date') %></span>
-    </div>
-    <div>
-        <span><%= @order.delivery_date.strftime('%d-%m-%Y') %></span>
-    </div>
+  <div>
+    <span><%= t('delivery_date') %></span>
+  </div>
+  <div>
+    <span><%= @order.delivery_date.strftime('%d-%m-%Y') %></span>
+  </div>
+</div>
+
+<div>
+  <div>
+    <button><%= @order.destroy %></button>
+  </div>
+  <div>
+    <%= link_to 'edit_order', client_area_edit_order_path %>
+  </div>
 </div>

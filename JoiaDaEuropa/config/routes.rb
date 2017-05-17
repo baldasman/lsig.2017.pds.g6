@@ -12,7 +12,10 @@ Rails.application.routes.draw do
   get '/home/QuemSomos'
   get '/home/Missao'
   get '/client_area/all_orders'
+  get '/client_area/edit_order'
   post '/client_area/save_order'
+  post '/client_area/destroy_order'
+  patch '/client_area/destroy_order'
   get '/agent_area/index'
 
   get '/client_area/view_order/:order_id', to: 'client_area#view_order', as: 'client_area_view_order'

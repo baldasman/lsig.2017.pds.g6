@@ -2,7 +2,8 @@ class ProfileController < ApplicationController
 
   def index
 
-    @user = current_user
+    @account = current_user
+
 
   end
 

@@ -1,0 +1,24 @@
+<div class="container-fluid">
+  <%= form_for @order, url: {action: "save_order"} do |f| %>
+
+      <p>
+        <%= f.label :price %>
+        <%= f.text_field :price, :default => @order.price %>
+      </p>
+
+
+      <p>
+        <%= f.label :obs %>
+        <%= f.text_area :obs %>
+      </p>
+
+
+
+      <p>
+        <%= f.label :delivery_date %>
+        <%= f.text_field :delivery_date, :id => 'datepicker5', :value => Date.today, :class => 'input-group date' %>
+      </p>
+
+      <%= f.submit 'save_order' %>
+  <% end %>
+</div>

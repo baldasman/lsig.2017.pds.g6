@@ -24,12 +24,15 @@
             <a href="#contact" class="w3-bar-item w3-button">Missão</a>
             <a href="#contact" class="w3-bar-item w3-button">Noticias</a>
 
+
             <% if current_user %>
-                <%= link_to 'Área de Cliente', client_area_index_path, :class => 'w3-bar-item w3-button' %>
-                <%= link_to 'Sign Out', destroy_user_session_path, {method: 'delete', class: 'w3-bar-item w3-button'} %>
+              <%= link_to 'Área de Cliente', client_area_index_path, :class => 'w3-bar-item w3-button' %>
+              <%= link_to 'Sign Out', destroy_user_session_path, {method: 'delete', class: 'w3-bar-item w3-button'} %>
+
             <% else %>
                 <%= link_to 'Sign In', new_user_session_path, :class => 'w3-bar-item w3-button' %>
             <% end %>
+
         </div>
     </div>
 </div>
@@ -60,3 +63,5 @@
 
 </body>
 </html>
+
+
