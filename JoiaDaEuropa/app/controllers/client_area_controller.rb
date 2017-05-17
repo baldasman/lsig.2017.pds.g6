@@ -50,7 +50,7 @@ class ClientAreaController < ApplicationController
         @order.delivery_date = _order[:delivery_date]
 
         if @order.save
-            redirect_to(client_area_view_order_path(@order.id), :notice => 'Order was successfully created')
+            redirect_to(client_area_view_order_path(@order.id), flash: => 'Order was successfully created')
         else
             redirect_to client_area_new_order_path
         end
