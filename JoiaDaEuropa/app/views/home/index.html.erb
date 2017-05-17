@@ -116,3 +116,33 @@ To use this code on your website, get a free API key from Google.
 Read more at: https://www.w3schools.com/graphics/google_maps_basic.asp
 -->
 </div>
+
+<span id="top-link-block" class="hidden">
+    <a href="#top" class="well well-sm" onclick="$('html,body').animate({scrollTop:0},'slow');return false;">
+        <i class="glyphicon glyphicon-chevron-up"></i> Back to Top
+    </a>
+</span>
+
+<script>
+    // Only enable if the document has a long scroll bar
+    // Note the window height + offset
+    if ( ($(window).height() + 100) < $(document).height() ) {
+        $('#top-link-block').removeClass('hidden').affix({
+            // how far to scroll down before link "slides" into view
+            offset: {top:100}
+        });
+    }
+</script>
+
+<style>
+  #top-link-block.affix-top {
+    position: fixed; /* allows it to "slide" up into view */
+    bottom: -50px;
+    right: 10px;
+  }
+  #top-link-block.affix {
+    position: fixed; /* keeps it on the bottom once in view */
+    bottom: 25px;
+    right: 10px;
+  }
+</style>
