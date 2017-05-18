@@ -16,6 +16,13 @@ Rails.application.routes.draw do
   get '/client_area/concluded_orders'
 
   get '/agent_area/index'
+  get '/agent_area/pending_orders'
+  get '/agent_area/cancelled_orders'
+  get '/agent_area/concluded_orders'
+  get '/agent_area/all_orders'
+
+
+  get '/agent_area/view_order/:order_id', to: 'agent_area#view_order', as: 'agent_area_view_order'
 
   get '/client_area/view_order/:order_id', to: 'client_area#view_order', as: 'client_area_view_order'
   get '/client_area/edit_order/:order_id', to: 'client_area#edit_order', as: 'client_area_edit_order'

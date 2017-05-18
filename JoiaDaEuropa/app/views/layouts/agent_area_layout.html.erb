@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+  <title>JoiaDaEuropa</title>
+  <%= csrf_meta_tags %>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+</head>
+<body>
+
+<!-- Navbar (sit on top) -->
+<div class="container">
+  <div class="w3-bar w3-white w3-wide w3-padding w3-card-2">
+    <%= image_tag('logo.png', :alt => 'logo feed') %>
+    <!-- Float links to the right. Hide them on small screens -->
+    <div class="w3-right w3-hide-small">
+      <a href="<%= home_index_path %>#projects" class="w3-bar-item w3-button">Home</a>
+      <a href="<%= home_index_path %>#projects" class="w3-bar-item w3-button">Quem Somos</a>
+      <a href="<%= home_index_path %>#contact" class="w3-bar-item w3-button">Missão</a>
+      <a href="<%= home_index_path %>#contact" class="w3-bar-item w3-button">Noticias</a>
+
+
+      <% if current_user %>
+
+          <%= @accounts = User.where(id: current_user.id) %>
+
+          <% if @accounts.find_by(is_client: '1') %>
+              <%= link_to 'Área de Cliente', client_area_index_path, :class => 'w3-bar-item w3-button' %>
+
+          <% else %>
+              <%= link_to 'Área do Agente', agent_area_index_path, :class => 'w3-bar-item w3-button' %>
+          <% end %>
+
+          <%= link_to 'Sign Out', destroy_user_session_path, {method: 'delete', class: 'w3-bar-item w3-button'} %>
+
+      <% else %>
+          <%= link_to 'Sign In', new_user_session_path, :class => 'w3-bar-item w3-button' %>
+      <% end %>
+
+
+
+
+    </div>
+  </div>
+</div>
+
+<style>
+  /* Style The Dropdown Button */
+  .dropbtn {
+    background-color: #f9f9f9;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+  }
+
+  /* The container <div> - needed to position the dropdown content */
+  .dropdown {
+    position: relative;
+    display: inline-block;
+  }
+
+  /* Dropdown Content (Hidden by Default) */
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+  }
+
+  /* Links inside the dropdown */
+  .dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+  }
+
+  /* Change color of dropdown links on hover */
+  .dropdown-content a:hover {background-color: #f1f1f1}
+
+  /* Show the dropdown menu on hover */
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+
+  /* Change the background color of the dropdown button when the dropdown content is shown */
+  .dropdown:hover .dropbtn {
+    background-color: #3e8e41;
+  }
+</style>
+
+<div class="container-fluid">
+  <div class="row content">
+    <% if current_user %>
+        <div class="col-sm-3 sidenav hidden-xs">
+          <h2>Logo</h2>
+          <ul class="nav nav-pills nav-stacked">
+            <li class="active">Menu</li>
+            <li><%= link_to t('Perfil'), profile_index_path %></li>
+
+
+            <div class="dropdown ">
+              <li><%= link_to t('Encomendas'), agent_area_all_orders_path, :class => 'w3-bar-item w3-button' %></li>
+              <div class="dropdown-content">
+                <li><%= link_to t('Pending'), agent_area_pending_orders_path,:class => 'w3-bar-item w3-button' %></li>
+                <li><%= link_to t('Cancelled'), agent_area_cancelled_orders_path, :class => 'w3-bar-item w3-button' %></li>
+                <li><%= link_to t('Concluded'), agent_area_concluded_orders_path, :class => 'w3-bar-item w3-button' %></li>
+              </div>
+            </div>
+
+          </ul>
+          <br>
+        </div>
+    <% end %>
+
+    <div class="col-sm-9">
+      <%= yield %>
+    </div>
+
+  </div>
+</div>
+
+</body>
+</html>
+
+
+
