@@ -9,9 +9,11 @@ Rails.application.routes.draw do
   post '/client_area/index'
   get '/client_area/new_order'
   get '/client_area/save_order'
-  get '/home/QuemSomos'
-  get '/home/Missao'
+
   get '/client_area/all_orders'
+  get '/client_area/pending_orders'
+  get '/client_area/cancelled_orders'
+  get '/client_area/concluded_orders'
 
   get '/agent_area/index'
 

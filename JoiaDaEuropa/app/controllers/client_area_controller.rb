@@ -6,18 +6,23 @@ class ClientAreaController < ApplicationController
 
     end
 
+
+
     def new_order
 
         @order = Order.new
 
     end
 
+
+
     def view_order
 
         @order = Order.find_by(id: params[:order_id])
 
-
     end
+
+
 
     def destroy_order
 
@@ -26,14 +31,17 @@ class ClientAreaController < ApplicationController
 
         redirect_to client_area_all_orders_path
 
-
     end
+
+
 
     def edit_order
 
         @order = Order.find_by(id: params[:order_id])
 
     end
+
+
 
     def save_order
 
@@ -50,19 +58,48 @@ class ClientAreaController < ApplicationController
         @order.delivery_date = _order[:delivery_date]
 
         if @order.save
-            redirect_to(client_area_view_order_path(@order.id), flash: => 'Order was successfully created')
+            redirect_to(client_area_view_order_path(@order.id))
         else
             redirect_to client_area_new_order_path
         end
 
     end
 
+
+
     def all_orders
 
-        @orders = Order.all
+        @account = current_user.id
+        @orders = Order.where(user_id: @account)
 
     end
 
 
+    def pending_orders
+
+        @account = current_user.id
+        @order = Order.where(user_id: @account)
+        @orders = @order.where(order_state_id: '1')
+
+    end
+
+
+
+    def cancelled_orders
+
+        @account = current_user.id
+        @order = Order.where(user_id: @account)
+        @orders = Order.where(order_state_id: '2')
+
+    end
+
+
+    def concluded_orders
+
+        @account = current_user.id
+        @order = Order.where(user_id: @account)
+        @orders = Order.where(order_state_id: '3')
+
+    end
 end
 
