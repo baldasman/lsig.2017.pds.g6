@@ -11,35 +11,13 @@
         <div class="obs">
           <%= f.label :obs %>
           <%= f.text_area :obs %>
-          <style>
-            .obs
-            {
-              position: absolute;
-              top: 150px;
-              left: 450px;
 
-            }
-          </style>
         </div>
 
       <div class="fileinputs">
         <label class="choosefile">Escolher ficheiro:</label>
         <input type="file" class="file">
-        <style>
-          .file
-            {
-              position: absolute;
-              top: 90px;
-              left: 600px;
 
-            }
-          .choosefile
-            {
-             position: absolute;
-            top: 90px;
-            left: 450px;
-            }
-        </style>
       </div>
         <p>
           <%= f.label :delivery_date %>
@@ -56,18 +34,9 @@
         </div>
         </p>
       </div>
-        <button class="button"<%= f.submit %>
+        <li><%= f.submit 'save_order', :class => "btn btn-primary dropdown-toggle" %></li>
 
-        <style>
-            .button
-            {
-              position: absolute;
-              width: 50px;
-              height: 50px;
-              top: 300px;
-              left: 700px;
-            }
-        </style>
+
     <% end %>
   </div>
 </div>

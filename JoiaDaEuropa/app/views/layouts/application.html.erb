@@ -55,16 +55,17 @@
   .dropbtn {
     background-color: #f9f9f9;
     color: white;
-    padding: 16px;
-    font-size: 16px;
+    padding: 500px;
+    font-size: 500px;
     border: none;
     cursor: pointer;
   }
 
   /* The container <div> - needed to position the dropdown content */
-  .dropdown {
+  .dropdown-content {
     position: relative;
     display: inline-block;
+    padding: 12px 168px;
   }
 
   /* Dropdown Content (Hidden by Default) */
@@ -80,7 +81,7 @@
   /* Links inside the dropdown */
   .dropdown-content a {
     color: black;
-    padding: 12px 16px;
+    padding: 12px 168px;
     text-decoration: none;
     display: block;
   }
@@ -97,24 +98,35 @@
   .dropdown:hover .dropbtn {
     background-color: #3e8e41;
   }
+
+  .button {
+      background-color: deepskyblue;
+      padding: 12px 168px;
+      text-align: center;
+      border-radius: 5px;
+
+    }
+
 </style>
 
 <div class="container-fluid">
     <div class="row content">
         <% if current_user %>
             <div class="col-sm-3 sidenav hidden-xs">
-                <h2>Logo</h2>
-                <ul class="nav nav-pills nav-stacked">
-                    <li class="active">Menu</li>
-                    <li><%= link_to t('Perfil'), profile_index_path %></li>
-                    <li><%= link_to t('Nova Encomenda'), client_area_new_order_path %></li>
 
+                <ul class="nav nav-pills nav-stacked">
+                    <li class="active">Área de Cliente</li>
+                    <li><%= link_to t('Perfil'), profile_index_path, :class => 'button' %></li>
+                </br>
+                    <li><%= link_to t('Nova Encomenda'), client_area_new_order_path, :class => 'button' %></li>
+                  </br>
                   <div class="dropdown ">
-                    <li><%= link_to t('Encomendas'), client_area_all_orders_path,:class => 'w3-bar-item w3-button' %></li>
-                    <div class="dropdown-content">
-                      <li><%= link_to t('Pending'), client_area_pending_orders_path,:class => 'w3-bar-item w3-button' %></li>
-                      <li><%= link_to t('Cancelled'), client_area_cancelled_orders_path,:class => 'w3-bar-item w3-button' %></li>
-                      <li><%= link_to t('Concluded'), client_area_concluded_orders_path,:class => 'w3-bar-item w3-button' %></li>
+                    <button class="button" data-toggle="dropdown">Encomendas</button>
+                    <div class="dropdown-menu">
+                      <li><%= link_to t('All'), client_area_all_orders_path %></li>
+                      <li><%= link_to t('Pending'), client_area_pending_orders_path %></li>
+                      <li><%= link_to t('Cancelled'), client_area_cancelled_orders_path %></li>
+                      <li><%= link_to t('Concluded'), client_area_concluded_orders_path %></li>
                     </div>
                   </div>
 

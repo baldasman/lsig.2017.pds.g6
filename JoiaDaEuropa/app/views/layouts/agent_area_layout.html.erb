@@ -44,8 +44,6 @@
       <% end %>
 
 
-
-
     </div>
   </div>
 </div>
@@ -73,7 +71,7 @@
     position: absolute;
     background-color: #f9f9f9;
     min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
     z-index: 1;
   }
 
@@ -86,7 +84,9 @@
   }
 
   /* Change color of dropdown links on hover */
-  .dropdown-content a:hover {background-color: #f1f1f1}
+  .dropdown-content a:hover {
+    background-color: #f1f1f1
+  }
 
   /* Show the dropdown menu on hover */
   .dropdown:hover .dropdown-content {
@@ -97,22 +97,31 @@
   .dropdown:hover .dropbtn {
     background-color: #3e8e41;
   }
+
+  .button {
+    background-color: deepskyblue;
+    padding: 12px 168px;
+    text-align: center;
+    border-radius: 5px;
+
+  }
 </style>
 
 <div class="container-fluid">
   <div class="row content">
     <% if current_user %>
         <div class="col-sm-3 sidenav hidden-xs">
-          <h2>Logo</h2>
+          <h2></h2>
           <ul class="nav nav-pills nav-stacked">
-            <li class="active">Menu</li>
-            <li><%= link_to t('Perfil'), profile_index_path %></li>
-
-
+            <li class="active">Área de Agente</li>
+            <li><%= link_to t('Perfil'), profile_index_path, :class => 'button' %></li>
+          </br>
             <div class="dropdown ">
-              <li><%= link_to t('Encomendas'), agent_area_all_orders_path, :class => 'w3-bar-item w3-button' %></li>
-              <div class="dropdown-content">
-                <li><%= link_to t('Pending'), agent_area_pending_orders_path,:class => 'w3-bar-item w3-button' %></li>
+              <button class="button" data-toggle="dropdown">Encomendas</button>
+              <div class="dropdown-menu">
+
+                <li><%= link_to t('All'), agent_area_all_orders_path, :class => 'w3-bar-item w3-button' %></li>
+                <li><%= link_to t('Pending'), agent_area_pending_orders_path, :class => 'w3-bar-item w3-button' %></li>
                 <li><%= link_to t('Cancelled'), agent_area_cancelled_orders_path, :class => 'w3-bar-item w3-button' %></li>
                 <li><%= link_to t('Concluded'), agent_area_concluded_orders_path, :class => 'w3-bar-item w3-button' %></li>
               </div>
