@@ -28,7 +28,7 @@
 
             <% if current_user %>
 
-              <%= @accounts = User.where(id: current_user.id) %>
+              <% @accounts = User.where(id: current_user.id) %>
 
               <% if @accounts.find_by(is_client: '1') %>
                   <%= link_to 'Área de Cliente', client_area_index_path, :class => 'w3-bar-item w3-button' %>
