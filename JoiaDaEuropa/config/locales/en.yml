@@ -27,3 +27,4 @@ en:
     pending: 'Pending'
     cancelled: 'Cancelled'
     concluded: 'Concluded'
+    approved: 'Approved'

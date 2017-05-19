@@ -17,6 +17,7 @@ Rails.application.routes.draw do
 
   get '/agent_area/index'
   get '/agent_area/pending_orders'
+  get '/agent_area/approved_orders'
   get '/agent_area/cancelled_orders'
   get '/agent_area/concluded_orders'
   get '/agent_area/all_orders'
@@ -29,6 +30,9 @@ Rails.application.routes.draw do
 
   post '/client_area/save_order'
   post '/client_area/destroy_order'
+  post '/agent_area/approve_order'
+  post '/agent_area/cancel_order'
+  post '/agent_area/complete_order'
 
   root to: 'home#index'
 

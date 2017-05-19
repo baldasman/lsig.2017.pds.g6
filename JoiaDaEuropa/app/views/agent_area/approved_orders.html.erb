@@ -8,16 +8,14 @@
           <th>Preço</th>
           <th>Obs</th>
           <th>Estado</th>
-          <th>Ver</th>
         </tr>
         <% @orders.each do |order| %>
             <tr>
-              <td><%= h order.id %></td>
+              <td><%= link_to order.id, agent_area_view_order_path(order.id) %></td>
               <td><%= h order.delivery_date %></td>
               <td><%= h number_to_currency(order.price, unit: '€', separator: ',', delimiter: '.')%></td>
               <td><%= h order.obs %></td>
               <td><%= h order.order_state.description %></td>
-              <td><%= link_to 'Ver', agent_area_view_order_path(order.id) %></td>
         <% end %>
         </tr>
 

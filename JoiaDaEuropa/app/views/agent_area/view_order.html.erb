@@ -19,10 +19,15 @@
 </div>
 
 <div>
-  <div>
-    <%= link_to 'Apagar', client_area_destroy_order_path(order_id: @order.id), method: :post, data: {confirm: 'Tem a certeza que deseja apagar?'} %>
-  </div>
-  <div>
-    <%= link_to 'edit_order', client_area_edit_order_path(@order.id) %>
-  </div>
-</div>
+  <% @orders = Order.where(id: @order.id) %>
+
+  <% if @orders.find_by(order_state_id: '1') %>
+    <%= link_to 'Cancelar', agent_area_cancel_order_path(order_id: @order.id), method: :post, data: {confirm: 'Tem a certeza que deseja cancelar esta encomenda?'} %>
+    <%= link_to 'Aceitar', agent_area_approve_order_path(order_id: @order.id), method: :post, data: {confirm: 'Tem a certeza que deseja aprovar esta encomenda?'} %>
+  <%end %>
+
+  <% if @orders.find_by(order_state_id: '4') %>
+      <%= link_to 'Concluir', agent_area_complete_order_path(order_id: @order.id), method: :post, data: {confirm: 'Tem a certeza que deseja concluir esta encomenda?'} %>
+
+  <%end %>
+      </div>
