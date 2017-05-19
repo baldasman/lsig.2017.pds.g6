@@ -1,26 +1,27 @@
-<p class="container-fluid">
-  <h1>New Order</h1>
+<div class="container-fluid">
+    <h1>New Order</h1>
+
     <%= form_for @order, url: {action: "save_order"} do |f| %>
 
         <p>
-        <%= f.label :price %>
-          <%= f.text_field :price %>
+            <%= f.label :price %>
+            <%= f.text_field :price %>
         </p>
 
 
         <p>
-          <%= f.label :obs %>
-          <%= f.text_area :obs %>
+            <%= f.label :obs %>
+            <%= f.text_area :obs %>
 
         </p>
 
-      <div class="fileinputs">
-        <label class="choosefile">Escolher ficheiro:</label>
-        <input type="file" class="file">
+        <div class="fileinputs">
+            <label class="choosefile">Escolher ficheiro:</label>
+            <input type="file" class="file">
 
-      </div>
+        </div>
         <p>
-          <%= f.label :delivery_date %>
+            <%= f.label :delivery_date %>
         <div class="container">
             <div class="row">
                 <div class='col-sm-6'>
@@ -33,14 +34,14 @@
             </div>
         </div>
         </p>
-      </div>
 
-      <li><%= f.submit 'save_order' %></li>
-
+        <p>
+            <%= f.submit 'save_order' %>
+        </p>
 
     <% end %>
-  </div>
 </div>
+
 <script type="text/javascript">
     $(function () {
         $('#delivery_date').datetimepicker({
