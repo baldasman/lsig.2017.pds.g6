@@ -1,36 +1,42 @@
-<div class="container-fluid">
+<div class="container-fluid" align="center">
 
-    <ul class="nav nav-pills">
+    <ul style="float:" class="nav nav-pills">
         <li role="presentation" class="active"><a href="<%= client_area_all_orders_path %>">Todas</a></li>
         <li role="presentation"><a href="<%= client_area_pending_orders_path %>">Pendentes</a></li>
+        <li role="presentation"><a href="<%= client_area_approved_orders_path %>">Aprovadas</a></li>
         <li role="presentation"><a href="<%= client_area_cancelled_orders_path %>">Canceladas</a></li>
         <li role="presentation"><a href="<%= client_area_concluded_orders_path %>">Conclúidas</a></li>
-        <li role="presentation"><a href="<%= client_area_approved_orders_path %>">Aprovadas</a></li>
+
     </ul>
 
-    <div class="row content">
-        <div class="col-sm-3">
-            <table id="example" class="table table-striped table-bordered" cellspacing="0" width="100%">
-                <tr>
-                    <th>IDEncomenda</th>
-                    <th>Data de Entrega</th>
-                    <th>Preço</th>
-                    <th>Obs</th>
-                    <th>Estado</th>
-                </tr>
-                <% @orders.each do |order| %>
-                    <tr>
-                        <td><%= link_to order.id, client_area_view_order_path(order.id) %></td>
-                        <td><%= h order.delivery_date %></td>
-                        <td><%= h number_to_currency(order.price, unit: '€', separator: ',', delimiter: '.')%></td>
-                        <td><%= h order.obs %></td>
-                        <td><%= h order.order_state.description %></td>
-                <% end %>
-                </tr>
 
-            </table>
-        </div>
+  <div class="container">
+    <div class="table-responsive">
+      <table class="table">
+        <thead>
+        <tr>
+          <th>IDEncomenda</th>
+          <th>Data de Entrega</th>
+          <th>Preço</th>
+          <th>Obs</th>
+          <th>Estado</th>
+        </tr>
+        </thead>
+        <% @orders.each do |order| %>
+            <tbody>
+            <tr>
+              <td><%= link_to order.id, client_area_view_order_path(order.id) %></td>
+              <td><%= h order.delivery_date %></td>
+              <td><%= h number_to_currency(order.price, unit: '€', separator: ',', delimiter: '.') %></td>
+              <td><%= h order.obs %></td>
+              <td><%= h order.order_state.description %></td>
+        <% end %>
+        </tr>
+        </tbody>
+
+      </table>
     </div>
+  </div>
 </div>
 
 
