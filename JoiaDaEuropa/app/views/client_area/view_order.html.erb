@@ -2,7 +2,7 @@
 
 <div>
   <div>
-    <span><%= t('price') %></span>
+    <li><%= t('price') %></li>
   </div>
   <div>
     <span><%= @order.price %></span>
@@ -11,7 +11,7 @@
 
 <div>
   <div>
-    <span><%= t('delivery_date') %></span>
+    <li><%= t('delivery_date') %></li>
   </div>
   <div>
     <span><%= @order.delivery_date.strftime('%d-%m-%Y') %></span>
@@ -19,10 +19,23 @@
 </div>
 
 <div>
-  <div>
-    <button><%= link_to 'Apagar', client_area_destroy_order_path(order_id: @order.id), method: :post, data: {confirm: 'Tem a certeza que deseja apagar?'} %></button>
+  <div class="delete">
+    <%= link_to 'Apagar', client_area_destroy_order_path(order_id: @order.id), :class => 'button2', method: :post, data: {confirm: 'Tem a certeza que deseja apagar?'} %>
+
   </div>
-  <div>
-    <button><%= link_to 'Editar Encomenda', client_area_edit_order_path(@order.id) %></button>
+  <div class="edit">
+    <%= link_to 'Editar Encomenda', client_area_edit_order_path(@order.id), :class => 'button2' %></li>
   </div>
+  <style>
+    .delete {
+      top: 50px;
+      left: 500px;
+      padding: 9px 0px;
+    }
+    .edit {
+      top: 50px;
+      left: 500px;
+      padding: 15px 0px;
+    }
+  </style>
 </div>
