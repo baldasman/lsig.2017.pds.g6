@@ -20,7 +20,7 @@ class AgentAreaController < ApplicationController
   def pending_orders
 
     @order = Order.all
-    @orders = @order.where(order_state_id: '1')
+    @orders = @order.where(order_state_id: 1)
 
   end
 
@@ -29,7 +29,7 @@ class AgentAreaController < ApplicationController
   def cancelled_orders
 
     @order = Order.all
-    @orders = @order.where(order_state_id: '2')
+    @orders = @order.where(order_state_id: 2)
 
   end
 
@@ -38,7 +38,7 @@ class AgentAreaController < ApplicationController
   def concluded_orders
 
     @order = Order.all
-    @orders = @order.where(order_state_id: '3')
+    @orders = @order.where(order_state_id: 3)
 
   end
 
@@ -47,7 +47,7 @@ class AgentAreaController < ApplicationController
   def approved_orders
 
     @order = Order.all
-    @orders = @order.where(order_state_id: '4')
+    @orders = @order.where(order_state_id: 4)
 
   end
 
@@ -64,7 +64,7 @@ class AgentAreaController < ApplicationController
   def approve_order
 
     @order = Order.find_by(id: params[:order_id])
-    @order.order_state_id = '4'
+    @order.order_state_id = 4
     @order.save
     redirect_to agent_area_all_orders_path
   end
@@ -73,7 +73,7 @@ class AgentAreaController < ApplicationController
   def cancel_order
 
     @order = Order.find_by(id: params[:order_id])
-    @order.order_state_id = '2'
+    @order.order_state_id = 2
     @order.save
     redirect_to agent_area_all_orders_path
   end
@@ -82,7 +82,7 @@ class AgentAreaController < ApplicationController
   def complete_order
 
     @order = Order.find_by(id: params[:order_id])
-    @order.order_state_id = '3'
+    @order.order_state_id = 3
     @order.save
     redirect_to agent_area_all_orders_path
   end
