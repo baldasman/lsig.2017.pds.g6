@@ -1,4 +1,4 @@
-<div class="container-fluid">
+<p class="container-fluid">
   <h1>New Order</h1>
     <%= form_for @order, url: {action: "save_order"} do |f| %>
 
@@ -8,11 +8,11 @@
         </p>
 
 
-        <div class="obs">
+        <p>
           <%= f.label :obs %>
           <%= f.text_area :obs %>
 
-        </div>
+        </p>
 
       <div class="fileinputs">
         <label class="choosefile">Escolher ficheiro:</label>
@@ -34,7 +34,8 @@
         </div>
         </p>
       </div>
-        <li><%= f.submit 'save_order' %></li>
+
+      <li><%= f.submit 'save_order' %></li>
 
 
     <% end %>
