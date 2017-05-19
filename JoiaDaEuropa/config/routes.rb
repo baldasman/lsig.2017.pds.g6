@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   get '/client_area/pending_orders'
   get '/client_area/cancelled_orders'
   get '/client_area/concluded_orders'
+  get '/client_area/approved_orders'
 
   get '/agent_area/index'
   get '/agent_area/pending_orders'

@@ -85,6 +85,16 @@ class ClientAreaController < ApplicationController
 
 
 
+
+    def approved_orders
+
+        @account = current_user.id
+        @order = Order.where(user_id: @account)
+        @orders = @order.where(order_state_id: '4')
+
+    end
+
+
     def cancelled_orders
 
         @account = current_user.id
