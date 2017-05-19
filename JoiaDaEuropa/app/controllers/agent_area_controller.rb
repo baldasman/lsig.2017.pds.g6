@@ -66,7 +66,7 @@ class AgentAreaController < ApplicationController
     @order = Order.find_by(id: params[:order_id])
     @order.order_state_id = '4'
     @order.save
-
+    redirect_to agent_area_all_orders_path
   end
 
 
@@ -75,7 +75,7 @@ class AgentAreaController < ApplicationController
     @order = Order.find_by(id: params[:order_id])
     @order.order_state_id = '2'
     @order.save
-
+    redirect_to agent_area_all_orders_path
   end
 
 
@@ -84,6 +84,6 @@ class AgentAreaController < ApplicationController
     @order = Order.find_by(id: params[:order_id])
     @order.order_state_id = '3'
     @order.save
-
+    redirect_to agent_area_all_orders_path
   end
 end

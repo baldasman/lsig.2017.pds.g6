@@ -56,7 +56,7 @@ class ClientAreaController < ApplicationController
         @order.obs = _order[:obs]
         @order.price = _order[:price]
         @order.delivery_date = _order[:delivery_date]
-
+        @order.order_state_id = '1'
         if @order.save
             redirect_to(client_area_view_order_path(@order.id))
         else
