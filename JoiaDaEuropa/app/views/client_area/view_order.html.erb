@@ -20,9 +20,9 @@
 
 <div>
   <div>
-      <%= link_to 'Apagar', client_area_destroy_order_path(order_id: @order.id), method: :post, data: {confirm: 'Tem a certeza que deseja apagar?'} %>
+    <button><%= link_to 'Apagar', client_area_destroy_order_path(order_id: @order.id), method: :post, data: {confirm: 'Tem a certeza que deseja apagar?'} %></button>
   </div>
   <div>
-    <%= link_to 'edit_order', client_area_edit_order_path(@order.id) %>
+    <button><%= link_to 'Editar Encomenda', client_area_edit_order_path(@order.id) %></button>
   </div>
 </div>
