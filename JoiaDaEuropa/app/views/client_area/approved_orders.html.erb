@@ -19,6 +19,7 @@
           <th>Preço</th>
           <th>Obs</th>
           <th>Estado</th>
+          <th>Ver</th>
         </tr>
         </thead>
         <% @orders.each do |order| %>
@@ -29,6 +30,7 @@
               <td><%= h number_to_currency(order.price, unit: '€', separator: ',', delimiter: '.') %></td>
               <td><%= h order.obs %></td>
               <td><%= h order.order_state.description %></td>
+              <td><%= link_to 'Ver', client_area_view_order_path(order.id) %></td>
         <% end %>
         </tr>
         </tbody>
