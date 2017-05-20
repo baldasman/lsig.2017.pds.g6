@@ -41,8 +41,6 @@ class ClientAreaController < ApplicationController
 
     end
 
-
-
     def save_order
 
         _order = params[:order]
@@ -52,11 +50,12 @@ class ClientAreaController < ApplicationController
         else
             @order = Order.new user_id: current_user.id, order_state_id: 1
         end
-
         @order.obs = _order[:obs]
         @order.price = _order[:price]
         @order.delivery_date = _order[:delivery_date]
         @order.order_state_id = '1'
+
+
         if @order.save
             redirect_to(client_area_view_order_path(@order.id))
         else
@@ -64,7 +63,6 @@ class ClientAreaController < ApplicationController
         end
 
     end
-
 
 
     def all_orders
