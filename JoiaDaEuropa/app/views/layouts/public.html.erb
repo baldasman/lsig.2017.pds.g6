@@ -8,14 +8,13 @@
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 </head>
 <body>
 
 <!-- Navbar (sit on top) -->
-<div class="container">
-    <div class="w3-bar w3-white w3-wide w3-padding w3-card-2" style='position: fixed;left: 0%;'>
+
+    <div class="w3-bar w3-white w3-wide w3-padding w3-card-2 w3-bar-fixed-top" role="navigation">
         <%= image_tag('logo.png', :alt => 'logo feed') %>
         <!-- Float links to the right. Hide them on small screens -->
         <div class="w3-right w3-hide-small">
@@ -39,14 +38,14 @@
                 <%= link_to 'Sign In', new_user_session_path, :class => 'w3-bar-item w3-button' %>
             <% end %>
 
-
-
         </div>
     </div>
 </div>
+<div class="container">
 
 
 <%= yield %>
-
+</div>
 </body>
+
 </html>

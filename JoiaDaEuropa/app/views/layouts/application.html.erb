@@ -15,8 +15,8 @@
 <body>
 
 <!-- Navbar (sit on top) -->
-<div class="container">
-  <div class="w3-bar w3-white w3-wide w3-padding w3-card-2" style='position: fixed;left: 0%;'>
+
+  <div class="w3-bar w3-white w3-wide w3-padding w3-card-2 w3-bar-fixed-top" role="navigation">
     <%= image_tag('logo.png', :alt => 'logo feed') %>
     <!-- Float links to the right. Hide them on small screens -->
     <div class="w3-right w3-hide-small">
@@ -47,10 +47,8 @@
     </div>
   </div>
 </div>
-</br>
-</br>
-</br>
-</br>
+<div class="container">
+</div>
 
 <nav class="navbar navbar-inverse sidebar" role="navigation">
   <div class="container-fluid">
@@ -83,6 +81,8 @@
             <li><a href="cancelled_orders">Cancelled</a></li>
             <li><a href="concluded_orders">Concluded</a></li>
           </ul>
+        </li>
+      </ul>
     </div>
   </div>
 </nav>
