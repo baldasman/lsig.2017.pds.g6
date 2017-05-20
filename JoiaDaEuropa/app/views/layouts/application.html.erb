@@ -51,7 +51,7 @@
 </br>
 </br>
 </br>
-
+<% if current_user %>
 <nav class="navbar navbar-inverse sidebar" role="navigation">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
@@ -86,6 +86,7 @@
     </div>
   </div>
 </nav>
+    <% end %>
 <div class="main">
   <%= yield %>
 </div>

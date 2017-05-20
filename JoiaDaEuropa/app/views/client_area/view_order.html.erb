@@ -17,6 +17,11 @@
     <span><%= @order.delivery_date.strftime('%d-%m-%Y') %></span>
   </div>
 </div>
+<div>
+                <% if @order.order_file %>
+                      <a href="/uploads/<%= @order.order_file.path %>" target="_blank">Anexo</a>
+                      <% end %>
+    </div>
 
 <div>
   <div class="delete">

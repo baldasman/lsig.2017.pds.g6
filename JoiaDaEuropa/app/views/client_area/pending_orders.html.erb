@@ -13,22 +13,24 @@
     <div class="table-responsive">
       <table class="table">
         <thead>
-          <tr>
-            <th>IDEncomenda</th>
-            <th>Data de Entrega</th>
-            <th>Preço</th>
-            <th>Obs</th>
-            <th>Estado</th>
-          </tr>
+        <tr>
+          <th>IDEncomenda</th>
+          <th>Data de Entrega</th>
+          <th>Preço</th>
+          <th>Obs</th>
+          <th>Estado</th>
+          <th>Ver</th>
+        </tr>
         </thead>
         <% @orders.each do |order| %>
             <tbody>
-              <tr>
-                <td><%= link_to order.id, client_area_view_order_path(order.id) %></td>
-                <td><%= h order.delivery_date %></td>
-                <td><%= h number_to_currency(order.price, unit: '€', separator: ',', delimiter: '.') %></td>
-                <td><%= h order.obs %></td>
-                <td><%= h order.order_state.description %></td>
+            <tr>
+              <td><%= link_to order.id, client_area_view_order_path(order.id) %></td>
+              <td><%= h order.delivery_date %></td>
+              <td><%= h number_to_currency(order.price, unit: '€', separator: ',', delimiter: '.') %></td>
+              <td><%= h order.obs %></td>
+              <td><%= h order.order_state.description %></td>
+              <td><%= link_to 'Ver', client_area_view_order_path(order.id) %></td>
         <% end %>
         </tr>
         </tbody>
@@ -36,5 +38,4 @@
       </table>
     </div>
   </div>
-</div>
 </div>
