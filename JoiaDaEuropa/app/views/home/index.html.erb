@@ -49,13 +49,11 @@
     <div class="w3-row-padding w3-grayscale">
         <div class="w3-col l3 m6 w3-margin-bottom">
             <img src="/w3images/team2.jpg" alt="" style="width:100%">
-            <h3>António Bento da Costa Ferreira</h3>
-            <p class="w3-opacity">Gerente e Fundador</p>
+            <h3>Fundador</h3>
+            <p class="w3-opacity">António Bento da Costa Ferreira</p>
             <p></p>
-            <p>
-                <button class="w3-button w3-light-grey w3-block" >Contact</button>
-            </p>
         </div>
+    </div>
 
 
         <!-- News Section -->
@@ -66,32 +64,33 @@
 
                   <article>
                   <div class="news-img1"></div>
-                    <h3>This is a news Title</h3>
-                    <p>Joida da Europa EMpresa de calçado de Felgueiras que não tem um site de jeito.</p>
+                    <h3>Fátima Lopes apresenta segunda coleção de calçado</h3>
+                    <p>Fátima Lopes Calçado resulta de uma parceria entre a estilista portuguesa e a fábrica de Felgueiras Jóia da Europa, numa aposta séria de ...</p>
                   </article>
 
                   <article>
                     <div class="news-img2"></div>
-                    <h3>This is a news Title</h3>
-                    <p>Joida da Europa EMpresa de calçado de Felgueiras que não tem um site de jeito.</p>
+                    <h3>Fátima Lopes estreia-se na Feira de Calçado de Milão</h3>
+                    <p>A coleção de Fátima Lopes nasce em de uma parceria com a fábrica portuguesa Joia da europa e define-se pelo “design, qualidade e ...</p>
                   </article>
 
                   <article>
                     <div class="news-img3"></div>
-                    <h3>This is a news Title</h3>
-                    <p>Joida da Europa EMpresa de calçado de Felgueiras que não tem um site de jeito.</p>
+                    <h3>'Guerra' aberta pela liderança na associação do calçado</h3>
+                    <p>Há duas listas candidatas à APICCAPS, a associação do calçado, situação ... E, por isso, a sua lista combina continuidade (Joia, Felmini e ...</p>
                   </article>
 
                   <article>
                     <div class="news-img4"></div>
-                    <h3>This is a news Title</h3>
-                    <p>Joida da Europa EMpresa de calçado de Felgueiras que não tem um site de jeito.</p>
+                    <h3>Calçado português ganhou mais de 340 marcas numa década</h3>
+                    <p>A indústria portuguesa de calçado criou mais de 340 marcas ao longo ... da parceria estabelecida com a empresa industrial Jóia da Europa, ...
+                      Sapatos portugueses batem recorde em Itália</p>
                   </article>
 
                   <article>
                     <div class="news-img5"></div>
-                    <h3>This is a news Title</h3>
-                    <p>Joida da Europa EMpresa de calçado de Felgueiras que não tem um site de jeito.</p>
+                    <h3>Exportações de calçado crescem 1,8% para 902 milhões</h3>
+                    <p>A indústria portuguesa de calçado fechou o primeiro semestre com as ... sua coleção de calçado, uma parceria com a fábrica Joia da Europa.</p>
                   </article>
 
                 </div>
@@ -101,29 +100,28 @@
 
     <!-- Contact Section -->
     <div class="w3-container w3-padding-32" id="contact">
-        <h3 class="w3-border-bottom w3-border-light-grey w3-padding-16">Contacto</h3>
+        <h3 class="w3-border-bottom w3-border-light-grey w3-padding-16">Contactos</h3>
         <p>Vamos manter o contacto!</p>
-        <form action="/action_page.php" target="_blank">
-            <input class="w3-input" type="text" placeholder="Nome" required name="Nome">
-            <input class="w3-input w3-section" type="text" placeholder="Email" required name="Email">
-            <input class="w3-input w3-section" type="text" placeholder="Assunto" required name="Assunto">
-            <button class="w3-button w3-black w3-section" type="submit">
-                <i class="fa fa-paper-plane"></i> Enviar Mensagem
-            </button>
-        </form>
-    </div>
+        <p>Número de telefone:255312443</p>
+        <p>Fax:255312444</p>
+        <p>Nosso WebSite: http://localhost:3000</p>
 
+    </div>
     <!-- End page content -->
-</div>
 
 <!-- Google Map -->
 <div id="googleMap" class="w3-grayscale" style="width:100%;height:450px;"></div>
 
 <!-- Footer -->
-<footer class="w3-center w3-black w3-padding-16">
-    <p>Joia da Europa</p>
-</footer>
+<footer>
+  <div class="wrapper">
+    <a href="<%= home_index_path %>#projects" class="w3-bar-item w3-button">Missão</a>
+    <a href="<%= home_index_path %>#about" class="w3-bar-item w3-button">Quem Somos</a>
+    <a href="<%= home_index_path %>#contact" class="w3-bar-item w3-button">Contatos</a>
+    <a href="<%= home_index_path %>#news" class="w3-bar-item w3-button">Noticias</a>
+  </div>
 
+</footer>
 <!-- Add Google Maps -->
 <script>
     function myMap() {
