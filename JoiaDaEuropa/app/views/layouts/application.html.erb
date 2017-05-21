@@ -75,11 +75,17 @@
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">Encomendas
             <span class="caret"></span><span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-folder-open"></span></a>
           <ul class="dropdown-menu forAnimate" role="menu">
-            <li><a href="all_orders">All</a></li>
-            <li><a href="pending_orders">Pending</a></li>
-            <li><a href="approved_orders">Approved</a></li>
-            <li><a href="cancelled_orders">Cancelled</a></li>
-            <li><a href="concluded_orders">Concluded</a></li>
+            <li>
+                <%= link_to 'All', client_area_all_orders_path %>
+            </li>
+            <li>
+                <%= link_to 'Pending', client_area_pending_orders_path %>
+            <li>
+                <%= link_to 'Approved', client_area_approved_orders_path %>
+            <li>
+                <%= link_to 'Cancelled', client_area_cancelled_orders_path %>
+            <li>
+                <%= link_to 'Concluded', client_area_concluded_orders_path %>
           </ul>
         </li>
       </ul>
