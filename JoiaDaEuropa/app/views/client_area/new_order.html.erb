@@ -1,46 +1,53 @@
-<div class="container-fluid">
-    <h1>New Order</h1>
+<div class="col-md-12">
+  <div class="modal-dialog" style="margin-bottom:0">
+    <div class="modal-content">
+      <div class="panel-heading">
+        <h1>New Order</h1>
 
-    <%= form_for @order, url: {action: "save_order"} do |f| %>
+        <%= form_for @order, url: {action: "save_order"} do |f| %>
 
-        <p>
-            <%= f.label :price %>
-            <%= f.text_field :price %>
-        </p>
+            <p>
+              <%= f.label :price %>
+              <%= f.text_field :price %>
+            </p>
 
 
-        <p>
-            <%= f.label :obs %>
-            <%= f.text_area :obs %>
+            <p>
+              <%= f.label :obs %>
+              <%= f.text_area :obs %>
 
-        </p>
+            </p>
 
-        <div class="fileinputs">
-            <label class="choosefile">Escolher ficheiro:</label>
-            <td> <%= f.file_field :upload, class: 'file' %> </td>
+            <div class="fileinputs">
+              <label class="choosefile">Escolher ficheiro:</label>
+              <td> <%= f.file_field :upload, class: 'file' %> </td>
 
-        </div>
-        <p>
-            <%= f.label :delivery_date %>
-        <div class="container">
-            <div class="row">
-                <div class='col-sm-6'>
-                    <div class="form-group">
-                        <div class='input-group'>
-                            <%= f.text_field :delivery_date, id: 'delivery_date', :value => Date.today, :class => 'input-group date form-control' %>
-                        </div>
-                    </div>
-                </div>
             </div>
-        </div>
-        </p>
+            <p>
+              <%= f.label :delivery_date %>
+            <div class="container">
+              <div class="row">
+                <div class='col-sm-6'>
+                  <div class="form-group">
+                    <div class='input-group'>
+                      <%= f.text_field :delivery_date, id: 'delivery_date', :value => Date.today, :class => 'input-group date form-control' %>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            </p>
 
-        <p class="button2">
-            <%= f.submit 'Gravar' %>
-        </p>
+            <p class="button2">
+              <%= f.submit 'Gravar' %>
+            </p>
+            <%= link_to 'Close', client_area_all_orders_path %>
 
-    <% end %>
+        <% end %>
 
+      </div>
+    </div>
+  </div>
 </div>
 
 

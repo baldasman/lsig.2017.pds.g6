@@ -1,46 +1,69 @@
-<h1>My order #<%= @order.id %> </h1>
+<div class="modal-content">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal">&times;</button>
+    <h4 class="modal-title">My order #<%= @order.id %></h4>
+  </div>
+  <div class="modal-body">
 
-<div>
-  <div>
-    <li><%= t('price') %></li>
-  </div>
-  <div>
-    <span><%= @order.price %></span>
-  </div>
-</div>
 
-<div>
-  <div>
-    <li><%= t('delivery_date') %></li>
-  </div>
-  <div>
-    <span><%= @order.delivery_date.strftime('%d-%m-%Y') %></span>
-  </div>
-</div>
-<div>
-                <% if @order.order_file %>
-                      <a href="/uploads/<%= @order.order_file.path %>" target="_blank">Anexo</a>
-                      <% end %>
+    <div>
+      <div>
+        <li><%= t('price') %></li>
+      </div>
+      <div>
+        <span><%= @order.price %></span>
+      </div>
     </div>
 
-<div>
-  <div class="delete">
-    <%= link_to 'Apagar', client_area_destroy_order_path(order_id: @order.id), :class => 'button2', method: :post, data: {confirm: 'Tem a certeza que deseja apagar?'} %>
+    <div>
+      <div>
+        <li><%= t('obs') %></li>
+      </div>
+      <div>
+        <span><%= @order.obs %></span>
+      </div>
+    </div>
 
+    <div>
+      <div>
+        <li><%= t('delivery_date') %></li>
+      </div>
+      <div>
+        <span><%= @order.delivery_date.strftime('%d-%m-%Y') %></span>
+      </div>
+    </div>
+    <div>
+      <% if @order.order_file %>
+          <a href="/uploads/<%= @order.order_file.path %>" target="_blank">Anexo</a>
+      <% end %>
+    </div>
+
+
+    <div class="modal-footer">
+      <div class="delete">
+        <%= link_to 'Apagar', client_area_destroy_order_path(order_id: @order.id), :class => 'button2', method: :post, data: {confirm: 'Tem a certeza que deseja apagar?'} %>
+
+      </div>
+      <div class="edit">
+        <%= link_to 'Editar Encomenda', client_area_edit_order_path(@order.id), :class => 'button2' %></li>
+      </div>
+      <%= link_to 'Close', client_area_all_orders_path %>
+    </div>
   </div>
-  <div class="edit">
-    <%= link_to 'Editar Encomenda', client_area_edit_order_path(@order.id), :class => 'button2' %></li>
-  </div>
-  <style>
-    .delete {
-      top: 50px;
-      left: 500px;
-      padding: 9px 0px;
-    }
-    .edit {
-      top: 50px;
-      left: 500px;
-      padding: 15px 0px;
-    }
-  </style>
+
+</div>
+</div>
+<style>
+  .delete {
+    top: 50px;
+    left: 500px;
+    padding: 9px 0px;
+  }
+
+  .edit {
+    top: 50px;
+    left: 500px;
+    padding: 15px 0px;
+  }
+</style>
 </div>

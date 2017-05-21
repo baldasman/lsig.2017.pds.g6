@@ -36,18 +36,18 @@
         <!-- Float links to the right. Hide them on small screens -->
         <div class="w3-right w3-hide-small">
             <a href="<%= home_index_path %>#projects" class="w3-bar-item w3-button">Missão</a>
-            <a href="<%= home_index_path %>#about" class="w3-bar-item w3-button">Quem Somos</a>
-            <a href="<%= home_index_path %>#contact" class="w3-bar-item w3-button">Contatos</a>
-            <a href="<%= home_index_path %>#news" class="w3-bar-item w3-button">Noticias</a>
+            <a href="<%= home_index_path %>#about" class="w3-bar-item w3-button">About Us</a>
+            <a href="<%= home_index_path %>#contact" class="w3-bar-item w3-button">Contacts</a>
+            <a href="<%= home_index_path %>#news" class="w3-bar-item w3-button">News</a>
 
             <% if current_user %>
               <% @accounts = User.where(id: current_user.id) %>
 
               <% if @accounts.find_by(is_client: '1') %>
-                  <%= link_to 'Área de Cliente', client_area_index_path, :class => 'w3-bar-item w3-button' %>
+                  <%= link_to 'Client Area', client_area_index_path, :class => 'w3-bar-item w3-button' %>
 
               <% else %>
-                  <%= link_to 'Área do Agente', agent_area_index_path, :class => 'w3-bar-item w3-button' %>
+                  <%= link_to 'Agent Area', agent_area_index_path, :class => 'w3-bar-item w3-button' %>
               <% end %>
 
                 <%= link_to 'Sign Out', destroy_user_session_path, {method: 'delete', class: 'w3-bar-item w3-button'} %>
@@ -64,4 +64,4 @@
 <%= yield %>
 </body>
 
-</html>f
+</html>
