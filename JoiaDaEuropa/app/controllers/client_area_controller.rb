@@ -52,6 +52,7 @@ class ClientAreaController < ApplicationController
         else
             @order = Order.new user_id: current_user.id, order_state_id: 1
         end
+
         @order.obs = _order[:obs]
         @order.price = _order[:price]
         @order.delivery_date = _order[:delivery_date]
@@ -60,11 +61,13 @@ class ClientAreaController < ApplicationController
         # save uploaded file
         uploaded_io = params[:order][:upload]
 
-        _filename = SecureRandom.hex + '_' + uploaded_io.original_filename
-        @order.order_file = OrderFile.new path: _filename
+        if uploaded_io.present?
+            _filename = SecureRandom.hex + '_' + uploaded_io.original_filename
+            @order.order_file = OrderFile.new path: _filename
 
-        File.open(Rails.root.join('public', 'uploads', _filename), 'wb') do |file|
-            file.write(uploaded_io.read)
+            File.open(Rails.root.join('public', 'uploads', _filename), 'wb') do |file|
+                file.write(uploaded_io.read)
+            end
         end
 
         if @order.save
