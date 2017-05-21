@@ -1,3 +1,5 @@
+require 'securerandom'
+
 class ClientAreaController < ApplicationController
 
     def index
@@ -55,6 +57,15 @@ class ClientAreaController < ApplicationController
         @order.delivery_date = _order[:delivery_date]
         @order.order_state_id = '1'
 
+        # save uploaded file
+        uploaded_io = params[:order][:upload]
+
+        _filename = SecureRandom.hex + '_' + uploaded_io.original_filename
+        @order.order_file = OrderFile.new path: _filename
+
+        File.open(Rails.root.join('public', 'uploads', _filename), 'wb') do |file|
+            file.write(uploaded_io.read)
+        end
 
         if @order.save
             redirect_to(client_area_view_order_path(@order.id))
